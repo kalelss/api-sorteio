@@ -1,6 +1,5 @@
 package com.projectdev.apisorteio.controllers;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,10 +18,8 @@ import com.projectdev.apisorteio.services.LoteNumerosService;
 
 @RestController
 @RequestMapping("/api/lote")
-public class LoteNumerosController implements Serializable {
+public class LoteNumerosController{
 	
-	private static final long serialVersionUID = 1L;
-
 	@Autowired
     private LoteNumerosService loteNumerosService;
     
