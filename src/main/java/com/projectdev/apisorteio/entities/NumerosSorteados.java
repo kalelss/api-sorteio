@@ -1,7 +1,5 @@
 package com.projectdev.apisorteio.entities;
 
-import java.io.Serializable;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -13,9 +11,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "tb-numerossorteados")
-public class NumerosSorteados implements Serializable {
-
-	private static final long serialVersionUID = 1L;
+public class NumerosSorteados {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
