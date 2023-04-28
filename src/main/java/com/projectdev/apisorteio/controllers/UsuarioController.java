@@ -1,6 +1,5 @@
 package com.projectdev.apisorteio.controllers;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,17 +24,12 @@ public class UsuarioController{
 	@Autowired UsuarioRepository usuarioRepository;
 	
 	@PostMapping("/adicionar")
-	public void adicionar(@RequestBody Usuario usuario) {
-		usuarioService.adicionar(usuario);
+	public Usuario adicionar(@RequestBody Usuario usuario) {
+		return usuarioService.adicionar(usuario);
 	}
 	
 	@GetMapping("/buscartodos")
 	public List<UsuarioDTO> buscarTodos(){
-		List<Usuario> lotes = usuarioRepository.findAll();
-        List<UsuarioDTO> dtos = new ArrayList<>();
-        for (Usuario lote : lotes) {
-            dtos.add(new UsuarioDTO(lote));
-        }
-        return dtos;
+		return usuarioService.buscarTodos();
 	}
 }
