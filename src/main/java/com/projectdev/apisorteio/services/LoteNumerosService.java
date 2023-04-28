@@ -1,10 +1,12 @@
 package com.projectdev.apisorteio.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.projectdev.apisorteio.dto.LoteNumerosDTO;
 import com.projectdev.apisorteio.entities.LoteNumeros;
 import com.projectdev.apisorteio.entities.NumerosSorteados;
 import com.projectdev.apisorteio.entities.Usuario;
@@ -42,5 +44,14 @@ public class LoteNumerosService {
 
 		loteNumerosRepository.save(loteNumeros);
 		return "Lote criado com sucesso!";
+	}
+	
+	public List<LoteNumerosDTO> buscarTodos(){
+		List<LoteNumeros> lotes = loteNumerosRepository.findAll();
+        List<LoteNumerosDTO> dtos = new ArrayList<>();
+        for (LoteNumeros lote : lotes) {
+            dtos.add(new LoteNumerosDTO(lote));
+        }
+		return dtos;
 	}
 }
